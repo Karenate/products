@@ -6,7 +6,7 @@ while True:
 	if name == 'q':
 		break
 	price = input('請輸入商品價格:　')
-
+	prrice = int(price)
     # 方法1
    	# p = []
 	# p.append(name)
@@ -29,7 +29,10 @@ for p in products:
 # 寫入檔案
 # +法 字串合併、\n 換行
 # 檔案格式為csv檔
+# 寫檔遇到整數
+# 寫檔加入 encoding ='utf-8' 解決中文字變亂碼問題
 
-with open('products.csv', 'w') as f:
+with open('products.csv', 'w', encoding='utf-8') as f:
+	f.write('商品,價格\n')
 	for p in products:
-		f.write(p[0] + ',' + p[1] + '\n')
+		f.write(p[0] + ',' + str(p[1]) + '\n')
